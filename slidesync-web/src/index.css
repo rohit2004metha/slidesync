@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  --primary: #1899e9;
+  --text: #000000;
+  --secondary: #e6e6e7;
+  --background: #ffffff;
+  --thumb: #ffffff;
+  --shadow: rgb(227, 226, 226);
+  --status-standby: #d9d9d9;
+  --status-success: #53ce51;
+  --status-error: #c30808;
+}
+
+body.dark {
+  --primary: #55c8ff;
+  --text: #e6e6e7;
+  --secondary: #606368;
+  --background: #232323;
+  --thumb: #555252;
+  --shadow: rgb(161, 157, 157);
+  --status-standby: var(--secondary);
+}
+
+body {
+  background-color: var(--background);
+  user-select: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.sora {
+  font-family: "Sora";
+}
+
+.blue {
+  color: #1899e9;
+}
+
+.time {
+  position: relative;
+}
+
+.time::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: -10%;
+  height: 65%;
+  width: 1.5px;
+  background-color: rgb(165, 165, 165);
+}
+
+/* Controls */
+
+input[type="range"] {
+  appearance: none;
+  width: 90%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 100%;
+  background-color: inherit !important;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 100%;
+  background-color: inherit !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--thumb);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0px 1.5px var(--shadow);
+}
+
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--thumb);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0px 1.5px var(--shadow);
+}
+button {
+  transition: all 0.1s ease;
+}
+button:hover {
+  filter: brightness(0.8);
+}
+
+/* Settings */
+
+.settings {
+  transition: transform 0.8s ease-in-out, background-color 0.5s ease;
+}
+
+.confirmation {
+  transition: all 0.6s ease;
+}
+
+#html5qr-code-full-region {
+  padding: 10px;
+}
+img[alt="Info icon"] {
+  display: none;
+}
+#html5qr-code-full-region__dashboard {
+  padding: 10px;
+}
+#html5qr-code-full-region__scan_region img {
+  display: inline;
+}
+
+#html5qr-code-full-region__dashboard_section_csr button {
+  padding: 10px;
+  /* background-color: var(--secondary); */
+  border: 1px solid black;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+/* First & Last slide buttons */
+.aux-button-img {
+  width: 14px;
+}
+.aux-button-img:hover {
+  filter: brightness(0.8);
+}
+
+body.dark .aux-button-img {
+  filter: invert(1);
+}
+
+.status-light {
+  background-color: var(--status-standby);
+  /* background-color: #606368; */
+  /* background-color: var(--secondary); */
+}
+
+.status-light.success {
+  background-color: var(--status-success);
+}
+
+.status-light.error {
+  background-color: var(--status-error);
+}
+
+/* Loader */
+
+.loaders-1 {
+  animation: ani-1 2s infinite linear alternate;
+  transform-origin: left;
+}
+.loaders-2 {
+  animation: ani-2 2s infinite linear alternate;
+  transform-origin: right;
+}
+
+@keyframes ani-1 {
+  50% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes ani-2 {
+  50% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
